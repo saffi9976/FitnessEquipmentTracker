@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Update Maintenance Record</h1>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button type="submit">Save</button>
+</form>
+<a href="{% url 'inventory_list' %}" class="button">
+    Cancel
+</a>
+
+{% endblock %}

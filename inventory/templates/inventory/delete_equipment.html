@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<h1>Delete Equipment</h1>
+
+<p>Are you sure you want to delete <strong>{{ item.name }}</strong>?</p>
+
+<form method="POST">
+    {% csrf_token %}
+    <button type="submit" class="button delete-btn">Yes, Delete</button>
+</form>
+
+<a href="{% url 'inventory_list' %}" class="button">
+    No, Go Back
+</a>
+{% endblock %}

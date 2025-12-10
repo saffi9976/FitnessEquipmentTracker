@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<h1>Import Equipment (CSV)</h1>
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <label>Select CSV File:</label>
+    <input type="file" name="file" accept=".csv" required>
+
+    <button type="submit">Import CSV</button>
+</form>
+
+<br>
+<a class="button" href="{% url 'inventory_list' %}">Back to Inventory</a>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fitness Inventory</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+<nav class="navbar">
+    <a href="{% url 'inventory_list' %}">Equipment</a>
+    <a href="{% url 'category_list' %}">Categories</a>
+    <a href="{% url 'maintenance_list' %}">Maintenance</a>
+    <a href="{% url 'export_csv' %}">Export CSV</a>
+    <a href="{% url 'export_json' %}">Export JSON</a>
+    <a href="{% url 'export_txt' %}">Export TXT</a>
+    <a href="{% url 'import_csv' %}">Import</a>
+</nav>
+
+{% if messages %}
+<div class="messages">
+    {% for message in messages %}
+        <div class="alert {{ message.tags }}">{{ message }}</div>
+    {% endfor %}
+</div>
+{% endif %}
+
+<div class="content">
+    {% block content %}
+    {% endblock %}
+</div>
+
+</body>
+</html>
