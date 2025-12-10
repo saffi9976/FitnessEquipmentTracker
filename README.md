@@ -22,7 +22,6 @@ The app allows users to:
 
 2. Sequence Diagram:
 ```text
-Sequence Diagram:
 User -> Template/Form: Submit EquipmentForm(name, manufacturer, type, price, stock, category)
 Template -> View: POST /inventory/add/
 View -> Form: Validate input
@@ -35,3 +34,4 @@ Signal -> View: Alert processed
 View -> Template: Render inventory_list.html with success message
 Template -> User: Updated equipment list
 ```
+
