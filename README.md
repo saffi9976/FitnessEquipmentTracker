@@ -18,20 +18,3 @@ The app allows users to:
 
 1. Class Diagram:
 <img width="2064" height="672" alt="image" src="https://github.com/user-attachments/assets/ea76e476-3942-42e3-acce-f7cf51ca32dc" />
-
-
-2. Sequence Diagram:
-```text
-User -> Template/Form: Submit EquipmentForm(name, manufacturer, type, price, stock, category)
-Template -> View: POST /inventory/add/
-View -> Form: Validate input
-Form -> Model/ORM: Equipment.objects.create()
-Model/ORM -> DB: INSERT INTO inventory_equipment (...)
-DB -> Model/ORM: OK
-Model/ORM -> View: Equipment instance
-View -> Signal: Trigger low_stock_alert if stock < 3
-Signal -> View: Alert processed
-View -> Template: Render inventory_list.html with success message
-Template -> User: Updated equipment list
-```
-
