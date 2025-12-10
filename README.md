@@ -29,8 +29,9 @@ The app allows users to:
 - Security via Django forms, CSRF protection, and ORM queries.
 
 
-1. Class Diagram:
+1. UML Diagram:
 <img width="2064" height="672" alt="image" src="https://github.com/user-attachments/assets/ea76e476-3942-42e3-acce-f7cf51ca32dc" />
+
 
 
 
