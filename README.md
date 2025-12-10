@@ -1,4 +1,4 @@
-# Fitness Equipment Inventory System
+# Fitness Equipment Tracker
 
 A web-based system to manage fitness equipment, categories, and maintenance records.  
 The app allows users to:
@@ -14,3 +14,4 @@ The app allows users to:
 - Search and pagination for large inventories.
 - File import/export for data persistence and backup.
 - Security via Django forms, CSRF protection, and ORM queries.
+
