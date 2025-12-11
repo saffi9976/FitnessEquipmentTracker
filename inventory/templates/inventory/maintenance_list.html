@@ -4,9 +4,9 @@
 {% block content %}
 <h1>Maintenance Records</h1>
 
-<a href="{% url 'add_maintenance' %}">Add Maintenance Record</a>
+<a href="{% url 'add_maintenance' %}" class="button">Add Maintenance Record</a>
 
-<input type="text" id="maintenanceSearchInput" placeholder="Search maintenance...">
+<input type="text" id="maintenanceSearchInput" placeholder="Search maintenance..." value="{{ search_query }}">
 
 <table id="maintenanceTable">
     <tr>
@@ -16,7 +16,7 @@
         <th>Actions</th>
     </tr>
 
-    {% for record in maintenance_records %}
+    {% for record in page_obj %}
     <tr>
         <td>{{ record.equipment }}</td>
         <td>{{ record.date }}</td>
@@ -32,6 +32,18 @@
     </tr>
     {% endfor %}
 </table>
+
+<div class="pagination">
+    {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}{% if search_query %}&search={{ search_query }}{% endif %}">&laquo; Previous</a>
+    {% endif %}
+
+    <span>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+
+    {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}{% if search_query %}&search={{ search_query }}{% endif %}">Next &raquo;</a>
+    {% endif %}
+</div>
 
 <script src="{% static 'js/search.js' %}"></script>
 {% endblock %}
